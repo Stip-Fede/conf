@@ -6,7 +6,12 @@ echo "loading syntax highlighting settings"
 if [[ -v $HOMEBREW_REPOSITORY ]] ; then
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    if [[ -a /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then 
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
+    if [[ -a /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
 fi
 echo "Loading oh-my-posh settings (fs2.omp.json)"
 eval "$(oh-my-posh init zsh --config '~/.fs2.omp.json')"
