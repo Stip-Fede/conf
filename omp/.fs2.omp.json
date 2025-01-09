@@ -189,6 +189,18 @@
           "properties": {
             "cache_duration": "none"
           },
+            "type": "session",
+            "style": "diamond",
+            "foreground": "#ffffff",
+            "background": "#0077c2",
+            "leading_diamond": "",
+            "trailing_diamond": "",
+            "template": "{{ .HostName }}"
+          },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
           "leading_diamond": "\ue0b2",
           "trailing_diamond": "\ue0b4",
           "template": " {{ .CurrentDate | date .Format }} ",
