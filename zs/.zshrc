@@ -3,7 +3,11 @@ echo "loading autosuggestions"
 autoload -Uz compinit
 compinit
 echo "loading syntax highlighting settings"
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -v $HOMEBREW_REPOSITORY ]] ; then
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 echo "Loading oh-my-posh settings (fs2.omp.json)"
 eval "$(oh-my-posh init zsh --config '~/.fs2.omp.json')"
 
@@ -16,11 +20,10 @@ fi
 
 echo "Key bindings to emacs"
 bindkey -e
-if [[ $TERM_PROGRAM = "iTerm.app" ]] ; then
-    echo "Extra key bindings for iTerm"
-    bindkey  "^[[H"   beginning-of-line
-    bindkey  "^[[F"   end-of-line
-    bindkey  "^[[1;3D" backward-word
-    bindkey  "^[[1;3C" forward-word
+echo "Extra key bindings "
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[1;3D" backward-word
+bindkey  "^[[1;3C" forward-word
 
-fi
+
