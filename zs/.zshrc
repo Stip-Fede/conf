@@ -1,4 +1,13 @@
 echo "Executing .zshrc"
+echo "Setting history options"
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
 echo "loading autosuggestions"
 autoload -Uz compinit
 compinit
