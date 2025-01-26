@@ -15,7 +15,7 @@ echo "loading syntax highlighting settings"
 if [[ -n $HOMEBREW_REPOSITORY ]] ; then
     echo "Brew syntax highlight"	
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    source $(brew --prefix)/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
     if [[ -a /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then 
 	echo "plugin folder syntax highlight"
