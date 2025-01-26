@@ -12,14 +12,17 @@ echo "loading autosuggestions"
 autoload -Uz compinit
 compinit
 echo "loading syntax highlighting settings"
-if [[ -v $HOMEBREW_REPOSITORY ]] ; then
+if [[ -n $HOMEBREW_REPOSITORY ]] ; then
+    echo "Brew syntax highlight"	
     source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
     if [[ -a /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then 
+	echo "plugin folder syntax highlight"
         source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
     if [[ -a /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
-        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        echo "Normal syntax highlight"
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
 fi
 echo "Loading oh-my-posh settings (fs2.omp.json)"
